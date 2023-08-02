@@ -1,8 +1,8 @@
 import { Repository } from "typeorm";
-import { TUserResponse } from "../interfaces/user.interfaces";
-import { User } from "../entities/user.entities";
-import { AppDataSource } from "../data-source";
-import { userSchemaResponse } from "../schemas/user.schemas";
+import { TUserResponse } from "../../interfaces/user.interfaces";
+import { User } from "../../entities/user.entities";
+import { AppDataSource } from "../../data-source";
+import { userSchemaResponse } from "../../schemas/user.schemas";
 
 const updateUserService = async (
   userData: Partial<TUserResponse>,

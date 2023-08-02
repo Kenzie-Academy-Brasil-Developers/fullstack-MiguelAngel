@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { TUserRequest } from "../interfaces/user.interfaces";
-import { createUserService } from "../services/createUser.service";
-import { ListUserService } from "../services/listUser.service";
-import { updateUserService } from "../services/updateUser.service";
-import { deleteUserService } from "../services/deleteUser.service";
+import { createUserService } from "../services/user/createUser.service";
+import { ListUserService } from "../services/user/listUser.service";
+import { updateUserService } from "../services/user/updateUser.service";
+import { deleteUserService } from "../services/user/deleteUser.service";
 
 const createUserController = async (req: Request, res: Response) => {
   const userData: TUserRequest = req.body;
