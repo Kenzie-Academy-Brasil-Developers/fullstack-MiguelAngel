@@ -1,0 +1,25 @@
+import { NextFunction, Request, Response } from "express";
+import { verify } from "jsonwebtoken";
+
+const ensureTokenIsValidedMiddleware = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<Response | void> => {
+  let authorization: string | undefined = req.headers.authorization;
+  if (!authorization) {
+    return res.status(401).json({ message: "Missing bearer token" });
+  }
+  const token = authorization.split(" ")[1];
+
+  verify(token, String(process.env.SECRET_KEY!), (error: any, decoded: any) => {
+    if (error) {
+      return res.status(401).json({ message: "Missing bearer token" });
+    }
+    res.locals.id = decoded.sub;
+  });
+
+  return next();
+};
+
+export { ensureTokenIsValidedMiddleware };
