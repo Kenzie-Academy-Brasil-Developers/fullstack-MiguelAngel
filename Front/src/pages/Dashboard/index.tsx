@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { ButtonsDashboard } from "../../components/buttons/buttonsDashboard";
 import { ProfileUser } from "../../components/cards/cardProfile";
 import { Header } from "../../components/header";
 import { Background } from "../../components/wallpaper";
@@ -10,6 +9,7 @@ import { CardContact } from "../../components/cards/cardContact/cardAddContact";
 import { MainPag } from "./style";
 import { ModalUpdateContact } from "../../components/forms/updateContact";
 import { UpdateUserModal } from "../../components/forms/updateUser";
+import { ButtonsDashboard } from "../../components/buttons/buttons";
 
 export const Dashboard = () => {
   const { modalContact, contacts, modalUpdate } = useContext(ContactContext);

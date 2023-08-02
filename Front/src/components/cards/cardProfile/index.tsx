@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../../../contexts/userContext";
 import { DivButton, DivCard, StyledCardUsuario } from "./style";
-import { ButtonDesconectar } from "../../buttons/buttonsDashboard/style";
+import { ButtonDesconectar } from "../../buttons/style";
 
 export const ProfileUser = () => {
   const { profile, setModalUpdateUser } = useContext(UserContext);
