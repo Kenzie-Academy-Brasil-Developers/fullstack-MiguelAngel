@@ -3,11 +3,13 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  OneToMany,
   BeforeInsert,
   BeforeUpdate,
 } from "typeorm";
 
 import { getRounds, hashSync } from "bcryptjs";
+import { Contact } from "./contact.entities";
 
 @Entity("users")
 class User {
@@ -28,6 +30,9 @@ class User {
 
   @CreateDateColumn()
   createdAt: Date;
+
+  @OneToMany(() => Contact, (contacts) => contacts.user, { cascade: true })
+  contacts: Contact[];
 
   @BeforeInsert()
   @BeforeUpdate()
