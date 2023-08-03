@@ -24,6 +24,7 @@ export const LoginProvider = ({ children }: ChildProps) => {
       toast.success("login realizado com sucesso!");
     } catch (error) {
       console.error(error);
+      toast.error("Email ou senha incorreto!");
     }
   };
 

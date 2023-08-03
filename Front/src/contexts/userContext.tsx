@@ -29,6 +29,7 @@ export const UserProvider = ({ children }: ChildProps) => {
       toast.success("Conta criada com sucesso!");
     } catch (error) {
       console.log(error);
+      toast.error("Email incorreto ou ja existe!");
     }
   };
 

@@ -143,3 +143,15 @@ export const CloseModalButton = styled.button`
     outline: none;
   }
 `;
+
+export const Perror = styled.span`
+  padding: 0px 0px 15px 3px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+
+  color: #a90025;
+`;

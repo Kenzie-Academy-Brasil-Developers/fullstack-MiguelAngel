@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { TRegister, schemaRegister } from "./schemaRegister";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UserContext } from "../../../contexts/userContext";
-import { ButtonEntrar, CloseModalButton } from "../login/style";
+import { ButtonEntrar, CloseModalButton, Perror } from "../login/style";
 
 export const FormRegister = () => {
   const { setRegister } = useContext(LoginContext);
@@ -37,37 +37,39 @@ export const FormRegister = () => {
           <input
             type="text"
             id="full_name"
-            {...register("full_name")}
+            {...register("full_name", {
+              required: "Nome completo é obrigatório",
+            })}
             placeholder="Digite seu nome completo"
           />
-          <p>{errors.full_name?.message}</p>
+          <Perror>{errors.full_name?.message}</Perror>
 
           <label htmlFor="email">Email:</label>
           <input
             type="text"
             id="email"
-            {...register("email")}
+            {...register("email", { required: "Email é obrigatório" })}
             placeholder="Digite seu email"
           />
-          <p>{errors.email?.message}</p>
+          <Perror>{errors.email?.message}</Perror>
 
           <label htmlFor="password">Senha:</label>
           <input
             type="password"
             id="password"
-            {...register("password")}
+            {...register("password", { required: "Senha é obrigatória" })}
             placeholder="Digite sua senha"
           />
-          <p>{errors.password?.message}</p>
+          <Perror>{errors.password?.message}</Perror>
 
           <label htmlFor="phone">Telefone:</label>
           <input
             type="text"
             id="phone"
-            {...register("phone")}
+            {...register("phone", { required: "Telefone é obrigatório" })}
             placeholder="Digite seu telefone"
           />
-          <p>{errors.phone?.message}</p>
+          <Perror>{errors.phone?.message}</Perror>
 
           <ButtonEntrar type="submit">Cadastrar</ButtonEntrar>
         </form>

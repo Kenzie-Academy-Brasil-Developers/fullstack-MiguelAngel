@@ -1,19 +1,24 @@
 import { useContext } from "react";
 import { LoginContext } from "../../../contexts/loginContext";
-import { ButtonEntrar, CloseModalButton, ModalLogin } from "./style";
+import { ButtonEntrar, CloseModalButton, ModalLogin, Perror } from "./style";
 import { useForm } from "react-hook-form";
 import { TLogin, schemaLogin } from "./schemaLogin";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export const FormLogin = () => {
   const { setLogin, setRegister, signIn } = useContext(LoginContext);
-  const { handleSubmit, register } = useForm<TLogin>({
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<TLogin>({
     resolver: zodResolver(schemaLogin),
   });
 
   const formUserLogin = (data: TLogin) => {
     signIn(data);
   };
+
   return (
     <ModalLogin>
       <div>
@@ -33,6 +38,7 @@ export const FormLogin = () => {
             {...register("email")}
             placeholder="Digite seu email"
           />
+          <Perror>{errors.email?.message}</Perror>
 
           <label htmlFor="password">Senha:</label>
           <input
@@ -41,7 +47,7 @@ export const FormLogin = () => {
             {...register("password")}
             placeholder="Digite sua senha"
           />
-
+          <Perror>{errors.password?.message}</Perror>
           <p
             onClick={() => {
               setLogin(false);

@@ -24,8 +24,8 @@ export const ModalRegister = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 20rem;
-    width: 20rem;
+    height: 25rem;
+    width: 22rem;
     border: solid 2px var(--color-shadow);
     border-radius: 1rem;
     background: linear-gradient(135deg, #e67e22, #3498db);
