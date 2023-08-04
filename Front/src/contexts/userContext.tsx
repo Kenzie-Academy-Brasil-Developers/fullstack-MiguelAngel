@@ -37,11 +37,7 @@ export const UserProvider = ({ children }: ChildProps) => {
     const token = localStorage.getItem("@token");
     if (!token) {
       navigate("/");
-    }
-  }, []);
-  useEffect(() => {
-    const token = localStorage.getItem("@token");
-    if (token) {
+    } else {
       const getProfileData = async () => {
         try {
           const response = await api.get<IProfile>("users/profile", {
@@ -54,7 +50,7 @@ export const UserProvider = ({ children }: ChildProps) => {
       };
       getProfileData();
     }
-  });
+  }, []);
 
   const updateUser = async (data: TProfileUpdate) => {
     const token = localStorage.getItem("@token");
