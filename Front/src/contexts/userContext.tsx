@@ -41,16 +41,17 @@ export const UserProvider = ({ children }: ChildProps) => {
       const getProfileData = async () => {
         try {
           const response = await api.get<IProfile>("users/profile", {
-            headers: { Authorization: "Bearer: " + token },
+            headers: { Authorization: "Bearer " + token },
           });
           setProfile(response.data);
         } catch (error) {
           console.log(error);
         }
       };
+
       getProfileData();
     }
-  }, []);
+  }, [navigate]);
 
   const updateUser = async (data: TProfileUpdate) => {
     const token = localStorage.getItem("@token");
